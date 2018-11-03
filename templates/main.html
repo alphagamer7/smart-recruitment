@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Personality Rec
+{%  endblock %}
+
+{% block content %}
+<section>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();
+        }
+// ]]>
+    </script>
+
+    <style>
+
+div#loading {
+    width: 35px;
+    height: 35px;
+    display: none;
+    background: url(/static/loadingimage.gif) no-repeat;
+    cursor: wait;
+    }
+
+    </style>
+    <div id="loading"></div>
+    <div id="content">
+        <h3>Type anything:</h3>
+        <p>
+        <form action="" method="POST">
+            <input type="text" name="anything" placeholder="Type anything here">
+            <input type="submit" name="anything_submit" value="Submit" onclick="loading();">
+        </form>
+        </p>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

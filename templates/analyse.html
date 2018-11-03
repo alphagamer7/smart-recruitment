@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+Personality Rec
+{%  endblock %}
+
+{% block content %}
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+    body {
+        font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    text {
+        pointer-events: none;
+    }
+
+    .form-section {
+        display: flex;
+        justify-content: center;
+    }
+
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .padclass {
+        padding: 10px;
+    }
+
+    .alertMsg {
+        margin-left: 300px;
+        width: 40%;
+    }
+</style>
+<section class="container">
+    <div class="form-section">
+        <form action="" method="post">
+            <articl class="input-group">
+                <p>
+                    <input type="text" name="username" required="true" placeholder="Enter Username">
+                </p>
+                <p class="padclass">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">Analyse</button>
+                    </span>
+                </p>
+            </articl>
+        </form>
+    </div>
+</section>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="alertMsg">
+    {% if request.args.get('count_error') %}
+    <div class="alert alert-danger">
+        <strong>Error!</strong> Need more than 100 tweets to analyse personality.
+    </div>
+    {% endif %}
+    {% if request.args.get('file_error') %}
+    <div class="alert alert-danger">
+        <strong>Error!</strong> The Twitter profile hasn't been added.<a href="{{ url_for('add') }}"> Please add Twitter
+        Profile.</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Personality Rec
+{%  endblock %}
+
+{% block content %}
+<section>
+
+
+    <img src="/static/Visual/OpennessCompare.png" height="100%" width="100%">
+    <img src="/static/Visual/AgreeablenessCompare.png" height="100%" width="100%">
+    <img src="/static/Visual/ConscientiousCompare.png" height="100%" width="100%">
+    <img src="/static/Visual/NeuroticismCompare.png" height="100%" width="100%">
+    <img src="/static/Visual/ExtraversionCompare.png" height="100%" width="100%">
+
+    <br>
+    <br>
+    <a href="{{ url_for('removelog') }}">Clear Log</a>
+    <script>
+
+        if (!localStorage.getItem("reload")) {
+            localStorage.setItem("reload", "true");
+            location.reload();
+        }
+        else {
+            localStorage.removeItem("reload");
+
+        }
+
+    </script>
+
+
+</section>
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

@@ -1,0 +1,79 @@
+<title>Home</title>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.min.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script src="../static/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<div class="container-fluid">
+    <article>
+        <br/>
+        <br/>
+        <header>
+            <h1 align="center">Overall Personality Score <br/> Name: {{ request.args.get('full_name') }}</h1>
+            <img id="image" src=""
+                 style="display: block; margin-left: auto;margin-right: auto;width: 10%; border-radius: 50%;"/>
+        </header>
+
+        <div class="col-md-6">
+            <img src="/static/Visual/graph.png"/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+   <div class="col-md-6">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <th>Personality Characteristics</th>
+                <th>Meaning</th>
+            </tr>
+                <tr class="info">
+                <td>Open </td>
+                <td>Imaginative & Insightful </td>
+                <tr class="default">
+                <td>Conscientious </td>
+                <td>Organised & Disciplined </td>
+                <tr class="info">
+                <td>Extroversion </td>
+                <td>Social & Outgoing </td>
+                <tr class="default">
+                <td>Neuroticism </td>
+                <td>Prone to Stress & Worry </td>
+                <tr class="info">
+                <td>Agreeable</td>
+                <td>Trusting & Helpful</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div  class="col-md-12">
+        <h3 align="center">Personality Dashboard with Facet <br/> Name: {{ request.args.get('full_name') }}</h3>
+        <svg style="display: block; margin: auto;"></svg>
+
+            <br/>
+              <div style="display: flex; justify-content: center;">
+             Select One:<br/>
+            <label for="rd1">General</label>
+            <input class='sizeSelect' type='radio' id="rd1" name='sizeSelect' value='size' checked/>
+            <label for="rd2">Top 3 HR Related</label>
+            <input class='sizeSelect' id="rd2" type='radio' name='sizeSelect' value='top3'>
+            </div>
+            <h5 align="center"> <a href="{{ url_for('compare') }}">Compare Results</a></h5>
+        </div>
+        <br>
+    </article>
+</div>
+<div class="footer-container">
+    <footer class="wrapper">
+        <br/>
+        <p>Smart Recruitment &copy; By Athif Shaffy</a> </p>
+    </footer>
+</div>
+        {% block javascript %}
+            <script type="text/javascript">
+                {% include "main.js" %}
+            </script>
+        {% endblock %}

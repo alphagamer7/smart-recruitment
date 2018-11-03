@@ -1,0 +1,20 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="Normalised No Of URLS <= 1.1\ngini = 0.492\nsamples = 114\nvalue = [50, 64]"] ;
+1 [label="Normalised Exclamations <= 0.754\ngini = 0.487\nsamples = 110\nvalue = [46, 64]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+3 [label="Normalised Hashtags <= 0.045\ngini = 0.499\nsamples = 83\nvalue = [40, 43]"] ;
+1 -> 3 ;
+7 [label="gini = 0.397\nsamples = 22\nvalue = [6, 16]"] ;
+3 -> 7 ;
+8 [label="gini = 0.493\nsamples = 61\nvalue = [34, 27]"] ;
+3 -> 8 ;
+4 [label="Normalised User Mentions <= 0.75\ngini = 0.346\nsamples = 27\nvalue = [6, 21]"] ;
+1 -> 4 ;
+5 [label="gini = 0.172\nsamples = 21\nvalue = [2, 19]"] ;
+4 -> 5 ;
+6 [label="gini = 0.444\nsamples = 6\nvalue = [4, 2]"] ;
+4 -> 6 ;
+2 [label="gini = 0.0\nsamples = 4\nvalue = [4, 0]"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
