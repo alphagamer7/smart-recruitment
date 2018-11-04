@@ -43,5 +43,5 @@ def get_count(text_given):
     return c_user_mentions, c_url, c_Hash, c_rt, c_exclam, c_question
 
 def clean_with_regex(unregTweet):
-    return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", unregTweet).split())
+ return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", unregTweet).split())
 
