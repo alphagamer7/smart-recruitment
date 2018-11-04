@@ -36,7 +36,7 @@ def analyse():
             print(profile.username)
             try:
                 profile.setuser_profile('TwitterProfileData/timeline' + profile.username + '.jsonl')
-                stweet, count ,name = get_tweets(profile.user_profile)
+                stweet, count ,name = get_tweets(profile.username)
             except FileNotFoundError:
                 print("File Not Found")
                 return redirect(url_for('analyse', file_error=True))

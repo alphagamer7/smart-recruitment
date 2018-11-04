@@ -1,20 +1,25 @@
 import nltk
 import jsonlines
 import re
+from pymongo import MongoClient
+client = MongoClient()
+db = client.twitter_profiles
+posts = db.twitter_timeline
 
 
-def get_tweets(filename):
+def get_tweets(username):
     stweet = ''
     count = 0
     name=""
-    with jsonlines.open(filename) as reader:
-        for obj in reader:
-            text = str(obj['text'])
-            name = obj['user']['name']
-            stweet += text
-            count = count + 1
-        return stweet, count, name
+    query = { "username": username }
 
+    queryRes = posts.find(query)
+
+    for obj in queryRes:
+        text = str(obj['content']['text'])
+        stweet += text
+        count = count + 1
+    return stweet, count, username
 
 # function to get
 def get_count(text_given):

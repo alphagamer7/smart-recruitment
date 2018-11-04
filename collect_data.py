@@ -3,17 +3,22 @@ import sys
 import json
 from tweepy import Cursor
 from twitterclient import get_twitter_client
-
-def usage():
-    print("Usage:")
-    print("python {} <username>".format(sys.argv[0]))
+from pymongo import MongoClient
+client = MongoClient()
+db = client.twitter_profiles
+posts = db.twitter_timeline
 
 def collect_data(username):
-    user = username
     client = get_twitter_client()
+    query = { "username": username }
 
-    fname = "TwitterProfileData/timeline{}.jsonl".format(user)
-    with open(fname, 'w') as f:
-        for page in Cursor(client.user_timeline, screen_name=user, count=200).pages(16):
+    queryRes = posts.find_one(query)
+
+    if queryRes is None:
+        for page in Cursor(client.user_timeline, screen_name=username, count=200).pages(16):
             for status in page:
-                f.write(json.dumps(status._json) + "\n")
+                post_data = {
+                'username': username,
+                'content': status._json
+                }
+                posts.insert_one(post_data)
