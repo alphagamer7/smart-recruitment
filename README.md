@@ -1,5 +1,5 @@
-# Personality Recognition with Twitter
-
+# Personality recognition with twitter
+A Machine Learning Based Personality Recognition System for HR Recruitment Using Twitter. 
 
 ### Screencast
 https://www.youtube.com/watch?v=XwziDf7AK5w
