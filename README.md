@@ -4,7 +4,7 @@
 ### Screencast
 https://www.youtube.com/watch?v=XwziDf7AK5w
 
-### Milestones
+### Future Milestones
 
 - [ ] Fix Auth Issue
 - [ ] Add MongoDB 
